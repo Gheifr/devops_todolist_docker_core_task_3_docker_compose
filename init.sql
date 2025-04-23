@@ -1,13 +1,1 @@
-SELECT COUNT(*) INTO @user_exists
-FROM mysql.user
-WHERE user = '${MYSQL_USER}' AND host = '%';
-
-
-IF @user_exists > 0 THEN
-    ALTER USER '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';
-ELSE
-    CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';
-END IF;
-
-
-GRANT ALL PRIVILEGES ON '${MYSQL_DATABASE}'.* TO '${MYSQL_USER}'@'%';
+GRANT ALL PRIVILEGES ON `app_db`.* TO 'app_user'@'%';
