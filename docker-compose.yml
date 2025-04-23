@@ -3,7 +3,7 @@ networks:
     driver: bridge
 services:
   mysql:
-   image: my-sql:1.2
+   image: mysql:latest
    build:
      context: .
      dockerfile: Dockerfile.mysql
@@ -20,7 +20,7 @@ services:
    networks:
      - db-data-net
   pythonapp:
-   image: todoapp:2.0.0
+   image: gheifr/todoapp:2.0.0
    build:
      context: .
      dockerfile: Dockerfile
